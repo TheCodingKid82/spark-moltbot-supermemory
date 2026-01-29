@@ -1,5 +1,5 @@
-# Extend the official Clawdbot image from Docker Hub
-FROM clawdbot/clawdbot:latest
+# Extend the official Moltbot image from GitHub Container Registry
+FROM ghcr.io/moltbot/moltbot:latest
 
 # Install Supermemory plugin
 RUN npm install @supermemory/clawdbot-supermemory
