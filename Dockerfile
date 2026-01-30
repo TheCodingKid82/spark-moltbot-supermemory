@@ -1,5 +1,5 @@
-# Extend the official Clawdbot image from GitHub Container Registry
-FROM ghcr.io/clawdbot/clawdbot:latest
+# Extend the official Clawdbot image from Docker Hub
+FROM clawdbot/clawdbot:latest
 
 # Install Supermemory plugin
 RUN npm install @supermemory/clawdbot-supermemory
