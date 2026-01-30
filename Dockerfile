@@ -1,14 +1,15 @@
 # Moltbot with Supermemory plugin
-FROM node:22-alpine
+FROM node:22-bookworm
 
-# Install git (needed for some deps) and bash
-RUN apk add --no-cache git bash
+# Install dependencies
+RUN corepack enable
 
-# Create app directory
 WORKDIR /app
 
-# Initialize package.json and install clawdbot locally
-RUN npm init -y && npm install clawdbot @supermemory/clawdbot-supermemory
+# Initialize and install clawdbot
+RUN npm init -y
+RUN npm install clawdbot @supermemory/clawdbot-supermemory
 
-# Run clawdbot gateway via node_modules/.bin
-CMD ["./node_modules/.bin/clawdbot", "gateway"]
+# Run the gateway via the installed clawdbot binary
+ENTRYPOINT ["node", "node_modules/clawdbot/dist/index.js"]
+CMD ["gateway"]
